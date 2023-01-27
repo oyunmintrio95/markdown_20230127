@@ -1,7 +1,33 @@
 # markdown_20230127
 마크다운 설명
 
-### 4.목록
+### 8. 이미지 넣기
+![]()
+
+### 7.하이퍼링크
+[e클래스](https://cafe.daum.net/pcwk "e클래스의 cafe입니다.")
+
+### 6. 가로 라인
+---
+***
+------
+
+### 5. 코드블록
+```
+def index(request):
+    '''question 목록'''
+    # Question.objects.order_by('create_date') #=>ASC
+    print('index 레벨로 출력')
+    #list order create_date desc
+    question_list = Question.objects.order_by('-create_date') # order_by('-필드')=>DESC
+    # question_list = Question.objects.filter(id=99)
+    context = {'question_list':question_list}
+    print('question_list:{}'.format(question_list))
+
+    return render(request,'pybo/question_list.html',context)
+```
+
+### 4. 목록
 1. 아이템1
 2. 아이템2  
   a. 1단계 하위 아이템  
@@ -27,7 +53,7 @@
 2. 목록
 3. 목록 3번
 
-### 3.인용문
+### 3. 인용문
 > 여기에 인용할 내용을 넣으면 됩니다.  
 > 빈 줄이 없으면 자동으로 인용 상자에 포함이 됩니다.
 
